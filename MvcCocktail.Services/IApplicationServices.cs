@@ -15,6 +15,7 @@ namespace MvcCocktail.Services
         void UpdateSettings(Settings updateSettings);
 
         //User
+        AppUser GetUser(string email);
         Task<AppUser> GetUserAsync(int id);
         Task<AppUser> GetUserAsync(string email);
         Task<AppUser> GetApiUserAsync(string token);

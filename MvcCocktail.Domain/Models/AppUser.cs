@@ -84,7 +84,7 @@ namespace MvcCocktail.Domain.Models
         }
 
         /// <exclude />
-        internal AppUser(string fistname, string lastname, string email, string password, AppRole role, bool activated)
+        public AppUser(string fistname, string lastname, string email, string password, AppRole role = AppRole.User, bool activated = false)
             : this()
         {
             FirstName = fistname;

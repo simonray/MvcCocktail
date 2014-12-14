@@ -1,4 +1,5 @@
 ﻿using MvcCocktail.Domain.Models;
+using MvcCocktail.Entities.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -26,6 +27,8 @@ namespace MvcCocktail.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            Database.SetInitializer(new Seeder());
+            modelBuilder.Configurations.Add(new UserMapper());
         }
 
         public override int SaveChanges()

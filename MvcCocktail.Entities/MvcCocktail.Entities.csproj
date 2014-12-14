@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Seeder.cs" />
+    <Compile Include="Configuration\UserMapper.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

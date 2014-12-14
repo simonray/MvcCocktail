@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices.Settings.cs">
+      <DependentUpon>IApplicationServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationServices.cs">
+      <DependentUpon>IApplicationServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationServices.Users.cs">
+      <DependentUpon>IApplicationServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="IApplicationServices.cs" />
     <Compile Include="PartialCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

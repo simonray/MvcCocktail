@@ -13,7 +13,8 @@ namespace MvcCocktail.Web.Controllers
         protected IApplicationServices Application { get; private set; }
         protected ISecurityServices Security { get; private set; }
 
-        public BaseController() { }
+        public BaseController()
+            : this(new ApplicationServices(), new SecurityServices()) { }
 
         public BaseController(IApplicationServices services, ISecurityServices securityServices)
         {
