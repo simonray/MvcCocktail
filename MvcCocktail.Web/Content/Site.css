@@ -1,0 +1,149 @@
+﻿
+/* ==========================================
+	Base
+   ========================================== */
+
+body {
+    background: url('../assets/images/bg.png') repeat scroll 0 0 #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 80px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ==========================================
+	Alert Notifications
+   ========================================== */
+
+.alertMsg {
+    font-size: 14px;
+    line-height: 1.5em;
+    margin: 0 auto 20px;
+    padding: 12px 30px 10px 20px;
+    position: relative;
+	max-width: 1200px;
+	transition: background 0.5s ease 0s;
+}
+
+.alertMsg i {
+	font-size: 18px;
+	margin-right: 10px;
+}
+
+.alertMsg .alert-close {
+    display: block;
+    height: 12px;
+    opacity: 0.4;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    text-indent: -999px;
+    top: 15px;
+    width: 12px;
+}
+
+.alertMsg .alert-close:hover
+{
+    opacity: 1;
+}
+
+.alertMsg.default {
+    background-color: #f5f5f5;
+    border: 1px #dddddd solid;
+    color: #333333;
+}
+
+.alertMsg.primary {
+    background-color: #008cba;
+    border: 1px #008cba solid;
+    color: #ffffff;
+}
+
+.alertMsg.info {
+    background-color: #5bc0de;
+    border: 1px #5bc0de solid;
+    color: #ffffff;
+}
+
+.alertMsg.success {
+    background-color: #43ac6a;
+    border: 1px #43ac6a solid;
+    color: #ffffff;
+}
+
+.alertMsg.warning {
+    background-color: #e99002;
+    border: 1px #e99002 solid;
+    color: #ffffff;
+}
+
+.alertMsg.danger {
+    background-color: #f04124;
+    border: 1px #f04124 solid;
+    color: #ffffff;
+}
+
+/* ==========================================
+	Custom Colored Panels
+   ========================================== */
+
+.huge {
+    font-size: 25px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a {
+    color: #5cb85c;
+}
+
+.panel-green a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red a {
+    color: #d9534f;
+}
+
+.panel-red a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+    color: #f0ad4e;
+}
+
+.panel-yellow a:hover {
+    color: #df8a13;
+}

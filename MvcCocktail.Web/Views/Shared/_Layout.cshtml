@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Raleway:200,300,400,700'>
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,300italic,400italic,600italic'>
+    <title>@ViewBag.Title - MVC Cocktail</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <!--If user has javascript disabled-->
+    <noscript>
+        <div class="alert alert-danger" role="alert" id="noscript-warning">
+            <p>To continue using this application please enable Javascript in your browser.</p>
+        </div>
+    </noscript>
+
+    <div class="navigation-content">
+        @Html.Partial("_Navigation")
+    </div>
+
+    <div id="container">
+        <nav class="navbar navbar" role="navigation">
+            <div class="menu-btn">&#9776;</div>
+        </nav>
+
+        <div class="container">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - MvcCocktail</p>
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Html.PageScripts()
+
+    <script type="text/javascript">
+        $(function () {
+            $("[rel='tooltip']").tooltip();
+        });
+    </script>
+</body>
+</html>

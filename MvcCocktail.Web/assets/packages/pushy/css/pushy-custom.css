@@ -1,0 +1,117 @@
+﻿
+.pushy .nav {
+    padding: 5px 5px;
+}
+
+.pushy .nav li a {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 4px 0;
+}
+
+.pushy .nav li.active a, .pushy .nav li a:hover {
+    color: #fff;
+    background: transparent;
+}
+
+.menu-btn {
+    background: none repeat scroll 0 0 #000;
+    color: #fff;
+    cursor: pointer;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    /*position: fixed;*/
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding-top: 2px;
+    padding-left: 2px;
+    border-radius: 4px;
+    z-index: 101;
+    -webkit-transition: background .4s;
+    -o-transition: background .4s;
+    -ms-transition: background .4s;
+    -moz-transition: background .4s;
+    transition: background .4s;
+}
+
+.menu-btn:hover {
+    background: #38C090;
+    color: #FFF;
+}
+
+/*#container {
+    position: relative;
+    padding: 10px 40px;
+}*/
+
+html, body {
+    /*overflow-x: hidden; /* prevents horizontal scroll bars */*/
+    /*-webkit-tap-highlight-color: rgba(0,0,0,0); /* disable webkit tap highlight */*/
+    /*height: 100%; /* fixes focus scrolling in Safari (OS X) */*/
+}
+
+
+
+
+.pushy .search_box {
+    background: none repeat scroll 0 0 #242424;
+    border-radius: 16px;
+    height: 32px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    color: #424242;
+    width: 219px;
+}
+
+.pushy .search_box i {
+    color: #424242;
+    display: block;
+    float: left;
+    font-size: 15px;
+    height: 20px;
+    margin-top: 6px;
+    padding-top: 1px;
+    text-align: center;
+    width: 45px;
+}
+
+.pushy .search_box input {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #424242;
+    float: left;
+    margin: 5px 0 0 10px;
+    padding: 0;
+    width: 162px;
+    /*font-family: lato;*/
+    font-style: italic;
+    color: #b3b3b1;
+    font-size: 14px;
+}
+
+
+
+/* Menu Width */
+
+.pushy {
+    width: 300px;
+}
+.pushy-left{
+    -webkit-transform: translate3d(-300px,0,0);
+    -moz-transform: translate3d(-300px,0,0);
+    -ms-transform: translate3d(-300px,0,0);
+    -o-transform: translate3d(-300px,0,0);
+    transform: translate3d(-300px,0,0);
+}
+
+.container-push, .push-push{
+    -webkit-transform: translate3d(300px,0,0);
+    -moz-transform: translate3d(300px,0,0);
+    -ms-transform: translate3d(300px,0,0);
+    -o-transform: translate3d(300px,0,0);
+    transform: translate3d(300px,0,0);
+}
