@@ -1,0 +1,18 @@
+﻿@model MvcCocktail.Web.Controllers.AccountLogoutViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        @using (Ajax.BeginForm("Logout", "Account", new AjaxOptions { }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            <div class="modal-body">
+                <p class="lead">@Model.Email, are you sure you want to signout of your account?</p>
+            </div>
+            <div class="modal-footer">
+                <button name="submit" class="btn btn-success btn-icon-alt"><i class="fa fa-sign-out"></i> Sign Out</button>
+                <button type="button" class="btn btn-default btn-icon" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
+            </div>
+        }
+    </div>
+</div>

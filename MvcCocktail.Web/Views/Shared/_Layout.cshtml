@@ -11,7 +11,6 @@
     @RenderSection("head", required: false)
 </head>
 <body>
-    <!--If user has javascript disabled-->
     <noscript>
         <div class="alert alert-danger" role="alert" id="noscript-warning">
             <p>To continue using this application please enable Javascript in your browser.</p>
@@ -30,9 +29,13 @@
         <div class="container">
             @RenderBody()
             <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - MvcCocktail</p>
-            </footer>
+
+
+            <div id="footer">
+                <div class="container">
+                    <p class="lead">&copy; @DateTime.Now.Year - <a href="https://github.com/simonray/MvcCocktail">MvcCocktail</a></p>
+                </div>
+            </div>
         </div>
     </div>
 

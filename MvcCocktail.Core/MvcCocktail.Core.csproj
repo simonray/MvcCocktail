@@ -75,8 +75,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AjaxOnlyAttribute.cs" />
     <Compile Include="Helpers\ActionLinks.cs" />
     <Compile Include="Helpers\PartialScripts.cs" />
+    <Compile Include="Mappers\AutomapperExtentions.cs" />
+    <Compile Include="Mappers\ViewMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\CacheObject.cs" />
     <Compile Include="Utilities\Generator.cs" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Caching;
 
-namespace App.Core.Utilities
+namespace MvcCocktail.Core.Utilities
 {
     //http://deanhume.com/Home/BlogPost/object-caching----net-4/37
     public class CacheObject

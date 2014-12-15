@@ -1,0 +1,51 @@
+﻿@model MvcCocktail.Web.Controllers.AccountLoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="row">
+    <div class="text-center">
+        <p><h1>MVC Cocktail <i class="fa fa-fw fa-glass"></i></h1></p>
+        <h4>Please Sign In</h4>
+        <div class="col-md-4 col-md-offset-4">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-envelope-o"></i></span>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address", id = "email" })
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", id = "password" })
+                </div>
+                <div class="form-group">
+                    <small class="pull-right">
+                        @Ajax.ActionModal("<i class='fa fa-fw fa-unlock'></i> Lost Password?", "Reset", "Account", "resetModal")
+                    </small>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block" type="submit">
+                        <i class="fa fa-fw fa-sign-in"></i> Login
+                    </button>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <small class="form-group">
+                    Don't have an Account?
+                    @Ajax.ActionModal("Create One <i class='fa fa-long-arrow-right'></i>", "Register", "Account", "registerModal")
+                </small>
+            }
+        </div>
+    </div>
+</div>
+
+

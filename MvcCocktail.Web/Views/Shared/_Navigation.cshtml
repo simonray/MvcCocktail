@@ -4,5 +4,27 @@
         <li>
             @Html.ActionLinkIcon("Home", "Index", "Home", "fa fa-fw fa-home")
         </li>
+
+        <li>
+            @Html.ActionLinkIcon("Security", "Index", "Home", "fa fa-fw fa-lock")
+            <ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <li>@Ajax.ActionModal("<i class='fa fa-fw fa-user'></i> Profile", "Manage", "Account", "manageModal")</li>
+                    <li>@Ajax.ActionModal("<i class='fa fa-fw fa-sign-out'></i> Logout (" + AuthHelper.FullName + ")", "Logout", "Account", "logoutModal")</li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("Login", "Account", new { returnUrl = Url.ActionReturnUrl() })"><i class="fa fa-fw fa-sign-in"></i> Login</a></li>
+                    <li>@Ajax.ActionModal("<i class='fa fa-fw fa-unlock'></i> Lost Password?", "Reset", "Account", "resetModal", new { returnUrl = Url.ActionReturnUrl() })</li>
+                    <li>@Ajax.ActionModal("<i class='fa fa-fw fa-edit'></i> Register?", "Register", "Account", "registerModal", new { returnUrl = Url.ActionReturnUrl() })</li>
+                }
+            </ul>
+        </li>
     </ul>
 </nav>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"></div>
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"></div>
+<div class="modal fade" id="manageModal" tabindex="-1" role="dialog"></div>
+<div class="modal fade" id="resetModal" tabindex="-1" role="dialog"></div>

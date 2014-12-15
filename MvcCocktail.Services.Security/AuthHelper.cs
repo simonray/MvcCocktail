@@ -1,4 +1,4 @@
-﻿using App.Core.Utilities;
+﻿using MvcCocktail.Core.Utilities;
 using MvcCocktail.Domain.Models;
 using MvcCocktail.Services;
 using System;
