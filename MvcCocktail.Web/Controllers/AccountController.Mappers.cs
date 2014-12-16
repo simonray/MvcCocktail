@@ -14,5 +14,17 @@ namespace MvcCocktail.Web.Controllers
     public class AccountLogoutMapper : ViewMapper<AccountLogoutViewModel, AppUser>
     {
     }
+    
+    public class AccountRegisterMapper : ViewMapper<AccountRegisterViewModel, AppUser>
+    {
+        protected override IMappingExpression<AccountRegisterViewModel, AppUser> DefineModelMap()
+        {
+            return base.DefineModelMap()
+                .AfterMap((src, dest) =>
+                {
+                    dest.SetPassword(src.Password);
+                });
+        }
+    }
 
 }

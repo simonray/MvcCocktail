@@ -8,7 +8,7 @@
         <li>
             @Html.ActionLinkIcon("Security", "Index", "Home", "fa fa-fw fa-lock")
             <ul>
-                @if (Request.IsAuthenticated)
+                @if (AuthHelper.IsAuthenticated)
                 {
                     <li>@Ajax.ActionModal("<i class='fa fa-fw fa-user'></i> Profile", "Manage", "Account", "manageModal")</li>
                     <li>@Ajax.ActionModal("<i class='fa fa-fw fa-sign-out'></i> Logout (" + AuthHelper.FullName + ")", "Logout", "Account", "logoutModal")</li>

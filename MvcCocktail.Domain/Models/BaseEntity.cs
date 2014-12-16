@@ -47,16 +47,5 @@ namespace MvcCocktail.Domain.Models
         {
            Created = DateTime.Now;
         }
-
-        public void MarkAsUpdated()
-        {
-            Modified = DateTime.Now;
-        }
-
-        public void MarkAsDeleted()
-        {
-            MarkAsUpdated();
-            Deleted = true;
-        }
     }
 }

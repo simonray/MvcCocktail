@@ -35,55 +35,62 @@ namespace MvcCocktail.Entities
         {
             try
             {
-                Commit();
+                ApplyEntityRules();
                 return base.SaveChanges();
             }
+#if DEBUG
             catch (DbEntityValidationException e)
             {
-                foreach (var validationErrors in e.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                        System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                }
-                throw e;
+                OutputException(e); throw e;
             }
+#endif //DEBUG
+            finally { }
         }
 
         public override Task<int> SaveChangesAsync()
-        {
+        {        
             try
             {
-                Commit();
+                ApplyEntityRules();
                 return base.SaveChangesAsync();
             }
+#if DEBUG
             catch (DbEntityValidationException e)
             {
-                foreach (var validationErrors in e.EntityValidationErrors)
+                OutputException(e); throw e;
+            }
+#endif //DEBUG
+            finally { }
+        }
+
+        private void ApplyEntityRules()
+        {
+            foreach (var entry in this.ChangeTracker.Entries()
+                .Where(o => o.Entity is IBaseEntity &&
+                    (o.State == EntityState.Added || o.State == EntityState.Modified || o.State == EntityState.Deleted)))
+            {
+                IBaseEntity entity = (IBaseEntity)entry.Entity;
+                if (entry.State == EntityState.Added)
                 {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                        System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    entity.Created = DateTime.Now;
                 }
-                throw e;
+                else
+                {
+                    if (entry.State == EntityState.Deleted)
+                    {
+                        entry.Reload();
+                        entity.Deleted = true;
+                    }
+                    entity.Modified = DateTime.Now;
+                }
             }
         }
 
-        private void Commit()
+        private void OutputException(DbEntityValidationException e)
         {
-            var modifiedEntries = this.ChangeTracker.Entries()
-                .Where(o => o.Entity is IBaseEntity &&
-                    (o.State == EntityState.Added || o.State == EntityState.Modified));
-
-            foreach (var entry in modifiedEntries)
-            {
-                IBaseEntity entity = entry.Entity as IBaseEntity;
-                if (entity != null)
-                {
-                    if (entry.State == EntityState.Added)
-                        entity.Created = DateTime.Now;
-                    else
-                        entity.Modified = DateTime.Now;
-                }
-            }
+            foreach (var validationErrors in e.EntityValidationErrors)
+                foreach (var validationError in validationErrors.ValidationErrors)
+                    System.Diagnostics.Debug.WriteLine("Property: '{0}', Error: '{1}'", validationError.PropertyName, validationError.ErrorMessage);
         }
     }
 }

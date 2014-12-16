@@ -49,5 +49,28 @@ namespace MvcCocktail.Web.Controllers
             return Goto("Index", "Home");
         }
 
+        [AllowAnonymous, AjaxOnly, Route("~/Register")]
+        public ActionResult Register(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return PartialView("_Register", new AccountRegisterMapper().ToView());
+        }
+
+        [AllowAnonymous, AjaxOnly, Route("~/Register")]
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(AccountRegisterViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                await SendRegistrationEmailAsync(model, await Application.CreateUserAsync(new AccountRegisterMapper().ToModel(model)));
+                return Goto("Index", "Home", returnUrl);
+            }
+            return PartialView("_Register", model);
+        }
+
+        private Task SendRegistrationEmailAsync(AccountRegisterViewModel model, AppUser newUser)
+        {
+            return Task.FromResult(true); //TODO: Implement
+        }
     }
 }

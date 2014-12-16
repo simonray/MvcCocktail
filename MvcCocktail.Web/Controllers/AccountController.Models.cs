@@ -27,4 +27,25 @@ namespace MvcCocktail.Web.Controllers
         public string Email { get; set; }
     }
 
+    public class AccountRegisterViewModel
+    {
+        [Required, EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required, DataType(DataType.Password), StringLength(255, MinimumLength = 6)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [Required, Compare("Password")]
+        [Display(Name = "Confirm password")]
+        public string ConfirmPassword { get; set; }
+    }
+
 }
