@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Configure.cs" />
     <Compile Include="Configuration\Seeder.cs" />
     <Compile Include="Configuration\UserMapper.cs" />
     <Compile Include="Context.cs" />

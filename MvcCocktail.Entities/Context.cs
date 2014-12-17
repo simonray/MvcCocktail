@@ -27,8 +27,9 @@ namespace MvcCocktail.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            Database.SetInitializer(new Seeder());
-            modelBuilder.Configurations.Add(new UserMapper());
+            modelBuilder.Configurations
+                .Add(new UserMapper()
+                );
         }
 
         public override int SaveChanges()
