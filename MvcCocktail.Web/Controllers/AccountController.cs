@@ -68,7 +68,50 @@ namespace MvcCocktail.Web.Controllers
             return PartialView("_Register", model);
         }
 
+        [Authorize, AjaxOnly, Route("~/Manage")]
+        public ActionResult Manage()
+        {
+            return PartialView("_Manage", new AccountProfileMapper().ToView(AuthHelper.User));
+        }
+
+        [Authorize, AjaxOnly, Route("~/Manage")]
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> Manage(AccountProfileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await Application.UpdateUserAsync(AuthHelper.User, new AccountProfileMapper().ToModel(model, AuthHelper.User));
+                return Goto("Index", "Home");
+            }
+            return PartialView("_Manage", model);
+        }
+
+        [AllowAnonymous, AjaxOnly, Route("~/Reset")]
+        public ActionResult Reset(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return PartialView("_Reset", new AccountForgotMapper().ToView());
+        }
+
+        [AllowAnonymous, AjaxOnly, Route("~/Reset")]
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> Reset(AccountForgotViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                AppUser findUser = await Application.GetUserAsync(model.Email);
+                if (findUser != null)
+                    await SendPasswordResetEmailAsync(findUser);
+            }
+            return Goto("Index", "Home");
+        }
+
         private Task SendRegistrationEmailAsync(AccountRegisterViewModel model, AppUser newUser)
+        {
+            return Task.FromResult(true); //TODO: Implement
+        }
+
+        private Task SendPasswordResetEmailAsync(AppUser findUser)
         {
             return Task.FromResult(true); //TODO: Implement
         }

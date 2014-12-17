@@ -1,0 +1,25 @@
+﻿@model MvcCocktail.Web.Controllers.AccountForgotViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+            <h4 class="modal-title">Reset Password</h4>
+        </div>
+        @using (Ajax.BeginForm("Reset", "Account", new { returnUrl = ViewBag.ReturnUrl }, new AjaxOptions { }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    <span class="help-block">The email address associated with your account.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button name="submit" value="resetPass" class="btn btn-success btn-icon"><i class="fa fa-unlock-alt"></i> Reset Password</button>
+                <button type="button" class="btn btn-default btn-icon" data-dismiss="modal"><i class="fa fa-times-circle-o"></i> Cancel</button>
+            </div>
+        }
+    </div>
+</div>

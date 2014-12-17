@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationServices.Settings.cs">
+    <Compile Include="ApplicationServices.cs">
       <DependentUpon>IApplicationServices.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationServices.cs">
+    <Compile Include="ApplicationServices.Settings.cs">
       <DependentUpon>IApplicationServices.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationServices.Users.cs">
