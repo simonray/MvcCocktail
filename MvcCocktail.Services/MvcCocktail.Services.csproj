@@ -56,7 +56,6 @@
       <DependentUpon>IApplicationServices.cs</DependentUpon>
     </Compile>
     <Compile Include="IApplicationServices.cs" />
-    <Compile Include="PartialCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

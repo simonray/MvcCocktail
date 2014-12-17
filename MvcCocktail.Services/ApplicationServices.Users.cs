@@ -47,8 +47,8 @@ namespace MvcCocktail.Services
         {
             using (var context = NewContext)
             {
-                return await PartialCollection<AppUser>
-                    .ToPartial(context.Users.All().Where(o => o.Activated == true), page, pageSize);
+                return await context.Users.All().Where(o => o.Activated == true)
+                    .ToPartialAsync<AppUser>(page, pageSize);
             }
         }
 
